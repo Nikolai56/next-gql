@@ -20,10 +20,9 @@ const Buddy: FC<IProps> = (
 ) => {
   return (
     <Link
-      data-test-id={`buddy-${id}`}
       href={`/details/${id}`}
     >
-      <div className={cx(
+      <a className={cx(
         styles.container,
         {
           [styles.active]: isActive,
@@ -37,7 +36,7 @@ const Buddy: FC<IProps> = (
           width={168}
         />
         <h3>{name}</h3>
-      </div>
+      </a>
     </Link>
   )
 }

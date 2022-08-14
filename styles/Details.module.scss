@@ -1,0 +1,28 @@
+@import 'styles/variables';
+
+.container {
+  h1 {
+    font-size: 128px;
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 18px;
+    @media (max-width: 575px) {
+      font-size: 64px;
+    }
+  }
+  img {
+    border-radius: 50%;
+  }
+}
+
+.button {
+  background-color: $color-primary;
+  border: none;
+  color: #fff;
+  line-height: 72px;
+  height: 72px;
+  min-width: 280px;
+  &:hover {
+    background-color: darken($color-primary, 10%);
+  }
+}
