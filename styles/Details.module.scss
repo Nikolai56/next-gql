@@ -6,12 +6,44 @@
     font-weight: normal;
     line-height: 1;
     margin-bottom: 18px;
-    @media (max-width: 575px) {
+    word-break: break-word;
+    @media (max-width: $screen-xxs-max) {
       font-size: 64px;
     }
   }
   img {
     border-radius: 50%;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  @media (max-width: $screen-xs-max) {
+    flex-direction: column;
+    align-items:center;
+  }
+}
+
+.image {
+  opacity: 0;
+  transform: translateX(-40px) scale(0, 0);
+  transition: all 0.3s;
+  margin-right: 50px;
+  &.active {
+    opacity: 1;
+    transform: translateX(0) scale(1, 1);
+  }
+  @media (max-width: $screen-xs-max) {
+    margin: 0 0 16px;
+  }
+}
+
+.content {
+  transform: translateX(-40px);
+  transition: all 0.3s;
+  &.active {
+    transform: translateX(0);
   }
 }
 

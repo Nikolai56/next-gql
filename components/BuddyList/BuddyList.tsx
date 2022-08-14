@@ -13,15 +13,12 @@ const BuddyList: FC<IProps> = (
   }
 ) => {
   const [activeId, setActiveId] = useState('')
-  console.log(activeId, typeof activeId)
 
   const onMouseEnter: React.MouseEventHandler<HTMLElement> = (e) => {
-    console.log('enter', e.currentTarget.dataset)
     setActiveId(e.currentTarget.dataset.id || '')
   }
 
   const onMouseLeave: React.MouseEventHandler<HTMLElement> = (e) => {
-    console.log('leave')
     setActiveId('')
   }
 

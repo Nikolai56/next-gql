@@ -1,8 +1,8 @@
-import React from 'react'
-import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import { gql } from '@apollo/client'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
+import cx from 'classnames'
 import client from '../../apollo-client'
 import Header from '@/components/Header/Header'
 import { IBuddy } from 'types'
@@ -17,6 +17,14 @@ const Details: NextPage<IProps> = ({ buddy }) => {
     image,
     name,
   } = buddy
+  const [isLoaded, setIsLoaded] = useState<boolean>(false)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true)
+    }, 0)
+    return () => clearTimeout(timer)
+  }, [])
+
   const [first, last] = name.split(' ')
 
   return (
@@ -26,24 +34,41 @@ const Details: NextPage<IProps> = ({ buddy }) => {
       />
       <main className={styles.container}>
         <Container>
-          <Row>
-            <Col sm={4} md={3} lg={2}>
-              <Image
+          <div className={styles.row}>
+            <div className={cx(
+              styles.image,
+              'text-center',
+              {
+                [styles.active]: isLoaded,
+              },
+            )}
+            >
+              <img
                 alt={name}
                 src={image}
                 height={168}
                 width={168}
+                // onLoad={() => setIsLoaded(true)}
               />
-            </Col>
-            <Col sm={8} md={9} lg={10}>
+            </div>
+            <div
+              className={cx(
+                styles.content,
+                'text-center',
+                'text-sm-start',
+                {
+                  [styles.active]: isLoaded,
+                },
+              )}
+            >
               <h1 className={styles.heading}>
                 {first}
                 <br/>
                 {last}
               </h1>
               <button className={styles.button}>Add Buddy</button>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </Container>
       </main>
     </>
