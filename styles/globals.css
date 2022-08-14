@@ -9,6 +9,14 @@ body {
   color: #0A0912;
 }
 
+footer {
+  height: 80px;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 a {
   color: inherit;
   text-decoration: none;

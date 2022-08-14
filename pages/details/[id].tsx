@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import { gql } from '@apollo/client'
-import { Container } from 'react-bootstrap'
 import cx from 'classnames'
 import client from '../../apollo-client'
+import Image from 'next/image'
+import { Container } from 'react-bootstrap'
 import Header from '@/components/Header/Header'
 import { IBuddy } from 'types'
 import styles from '../../styles/Details.module.scss'
@@ -71,6 +72,9 @@ const Details: NextPage<IProps> = ({ buddy }) => {
           </div>
         </Container>
       </main>
+      <footer>
+        <Image src="/made-with-heart.svg" alt="heart" width={77} height={11} />
+      </footer>
     </>
   )
 }

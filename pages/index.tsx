@@ -1,18 +1,22 @@
+import React, { useState } from 'react'
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import { Container } from 'react-bootstrap'
-// import styles from '../styles/Home.module.css'
 import { gql } from '@apollo/client'
 import client from '../apollo-client'
 import Header from '@/components/Header/Header'
 import BuddyList from '@/components/BuddyList/BuddyList'
 import { IBuddy } from 'types'
+import styles from '../styles/Home.module.scss'
+
 
 interface IProps {
   buddies: IBuddy[];
 }
 
 const Home: NextPage<IProps> = ({ buddies }) => {
+  const [inputText, setInputText] = useState<string>('')
+
   return (
     <>
       <Header
@@ -20,20 +24,18 @@ const Home: NextPage<IProps> = ({ buddies }) => {
       />
       <main>
         <Container>
-          <BuddyList buddies={buddies} />
+          {!inputText && (
+            <h1 className={styles.header}>
+              Fresh cryptobuddies
+            </h1>
+            )}
+          <BuddyList
+            buddies={buddies}
+          />
         </Container>
       </main>
       <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+        <Image src="/made-with-heart.svg" alt="heart" width={77} height={11} />
       </footer>
     </>
   )
