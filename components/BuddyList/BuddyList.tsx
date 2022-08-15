@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react'
+import cx from 'classnames'
 import Buddy from '@/components/Buddy/Buddy'
 import { IBuddy } from 'types'
 import styles from './BuddyList.module.scss'
@@ -23,7 +24,11 @@ const BuddyList: FC<IProps> = (
   }
 
     return (
-    <div className={styles.buddiesList}>
+    <div className={cx(
+      styles.buddiesList,
+      'text-center',
+      'text-sm-start'
+    )}>
       {buddies.map(buddie => (
         <div
           data-id={buddie.id}

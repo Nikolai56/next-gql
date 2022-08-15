@@ -1,0 +1,46 @@
+@import 'styles/variables';
+
+.container {
+  margin-bottom: 240px;
+}
+
+.iconClear, .iconSearch {
+  flex-shrink: 0;
+  cursor: pointer;
+  padding-top: 68px;
+  @media (max-width: $screen-xs-max) {
+    padding-top: 40px;
+  }
+}
+
+.iconSearch {
+  padding-right: 50px;
+  @media (max-width: $screen-xs-max) {
+    padding-right: 30px;
+  }
+}
+
+.input {
+  display: flex;
+}
+
+.textarea {
+  font-size: 128px;
+  border: none;
+  outline: none;
+  line-height: 1.2;
+  letter-spacing: -6px;
+  resize: none;
+  @media (max-width: $screen-xs-max) {
+    font-size: 80px;
+  }
+}
+
+.list {
+  transform: translateY(40px);
+  transition: all 0.3s;
+}
+
+.transition {
+  transform: translateY(0);
+}
