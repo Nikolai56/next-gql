@@ -19,7 +19,7 @@ const BuddyList: FC<IProps> = (
     setActiveId(e.currentTarget.dataset.id || '')
   }
 
-  const onMouseLeave: React.MouseEventHandler<HTMLElement> = (e) => {
+  const onMouseLeave: React.MouseEventHandler<HTMLElement> = () => {
     setActiveId('')
   }
 

@@ -11,7 +11,7 @@ interface IProps {
   setInputText: (value: string) => void;
 }
 
-const SearchPanel: FC<IProps> = (
+const SearchBlock: FC<IProps> = (
   {
     buddies,
     inputText,
@@ -91,4 +91,4 @@ const SearchPanel: FC<IProps> = (
   )
 }
 
-export default SearchPanel
+export default SearchBlock
